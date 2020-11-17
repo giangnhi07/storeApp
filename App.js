@@ -1,27 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
-import CategoryListItem from "./components/CategoryListItem";
+import { StyleSheet } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
+import AppNavigation from "./AppNavigation";
 
-
-
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <ScrollView>
-        <CategoryListItem />
-        <CategoryListItem />
-        <CategoryListItem />
-        <CategoryListItem />
-        <CategoryListItem />
-        <CategoryListItem />
-        <CategoryListItem />
-        <CategoryListItem />
-        <CategoryListItem />
-      </ScrollView>
-      <StatusBar style="auto" />
-    </View>
-  );
+const Stack = createStackNavigator();
+class App extends React.Component {
+  render() {
+    return <AppNavigation />;
+  }
 }
 
 const styles = StyleSheet.create({
@@ -34,3 +21,5 @@ const styles = StyleSheet.create({
     paddingRight: 16,
   },
 });
+
+export default App;

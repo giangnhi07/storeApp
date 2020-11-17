@@ -1,13 +1,16 @@
 import React from "react";
-import { Image, Text, View, StyleSheet } from "react-native";
+import { Image, Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import SkiiImage from "../assets/skii.png";
 
-export default function CategoryListItem(prop) {
+export default function CategoryListItem(props) {
+  const { category, onPress } = props;
   return (
-    <View style={style.container}>
-      <Text style={style.title}>CategoryListItem</Text>
-      <Image style={style.categoryImage} source={SkiiImage} />
-    </View>
+    <TouchableOpacity onPress={onPress}>
+      <View style={style.container}>
+        <Text style={style.title}>{category.name}</Text>
+        <Image style={style.categoryImage} source={SkiiImage} />
+      </View>
+    </TouchableOpacity>
   );
 }
 
@@ -22,7 +25,7 @@ const style = StyleSheet.create({
     shadowRadius: 10,
     shadowOffset: { width: 0, height: 0 },
     padding: 16,
-    marginBottom: 16
+    marginBottom: 16,
   },
   title: {
     textTransform: "uppercase",
